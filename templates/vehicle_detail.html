@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="client-entry">
+  <h2>{{ object.make }}</h2>
+    <p>by {{ object.author }}</p>
+    <p>{{ object.model }}</p>
+  </div>
+
+  <p>Back to <a href="{% url 'client_list' %}">All Clients</a>.</p>
+{% endblock content %}

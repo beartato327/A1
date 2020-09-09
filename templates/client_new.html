@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+  body{
+    background-color: white;
+    color: white;
+  }
+  .container{
+    background-color:  #343a40;
+  }
+</style>
+
+    <h1>New Client</h1>
+    <div class="container">
+    <form action="" method="post">{% csrf_token %}
+      <div class="row">
+        <div class="col">
+          {{form.name|as_crispy_field}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          {{form.address|as_crispy_field}}
+        </div>
+        <div class="col-3">
+          {{form.city|as_crispy_field}}
+        </div>
+        <div class="col-3">
+          {{form.state|as_crispy_field}}
+        </div>
+        <div class="col-3">
+          {{form.zipcode|as_crispy_field}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          {{form.email|as_crispy_field}}
+        </div>
+        <div class="col-4">
+          {{form.cell_phone|as_crispy_field}}
+        </div>
+        <div class="col-4">
+          {{form.acct_number|as_crispy_field}}
+        </div>       
+      </div>
+      <div class="row">
+        <div class="col-12">
+          {{form.notes|as_crispy_field}}
+        </div>
+      </div>
+      <button class="btn btn-success ml-2" type="submit">Save</button>
+    </form>
+  </div>
+{% endblock content %}

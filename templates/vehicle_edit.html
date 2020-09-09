@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>#vehicle{
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #343a40;
+  border: 1px solid rgba(0,0,0,0.1); 
+  color: white; 
+}
+</style>
+<div id="vehicle">
+    <h1>Edit Vehicle</h1>
+    <form action="" method="post">{% csrf_token %}
+      {{ form.as_p }}
+    <button class="btn btn-info ml-2" type="submit">Update</button>
+</form>
+</div>
+{% endblock content %}

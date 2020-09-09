@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Vehicles{% endblock title %}
+
+{% block content %}
+  <a class="btn btn-info btn-lg" href="{% url 'vehicle_new' %}">Add New Vehicle <i class="fas fa-car"></i></a>
+  {% for vehicle in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold">{{ vehicle.client }}</span>
+        <span class="font-weight-bold">cell: {{ vehicle.make }} | </span>
+        <span class="font-weight-bold">acct: {{ vehicle.model }} | </span>
+
+        <span class="font-muted">addr: {{ vehicle.vin_number }} | </span>
+      </div>
+      <div class="card-body">
+        <!-- <p>{{ client.notes }}</p> -->
+        <a href="{% url 'vehicle_edit' vehicle.pk %}">Edit</a> |
+        <a href="{% url 'vehicle_delete' vehicle.pk %}">Delete</a> |
+      </div>
+      <!-- <div class="card-footer">
+        {% for comment in client.comments.all %}
+          <p>
+            <span class="font-weight-bold">{{ comment.author }} &middot;</span>
+            {{ comment }}
+          </p>
+        {% endfor %}
+      </div> -->
+    </div>
+    <br />
+  {% endfor %}
+{% endblock content %}
